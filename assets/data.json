@@ -1,0 +1,17 @@
+[
+    {
+        "title":"What is computer",
+        "subtitle": "A computer is a machine that can be programmed to carry out sequences of arithmetic or logical operations automatically. Modern computers can perform generic sets of operations known as programs.",
+        "img":"https://cdn.pixabay.com/photo/2017/04/25/22/28/despaired-2261021_960_720.jpg"
+    },
+    {
+        "title":"what is software",
+        "subtitle": "Software is a collection of instructions that tell a computer how to work.",
+        "img": "https://cdn.pixabay.com/photo/2016/11/21/17/59/blackboard-1846865_960_720.jpg"
+    },
+    {
+        "title":"What is hardware",
+        "subtitle": "Computer hardware includes the physical parts of a computer, such as the case, central processing unit (CPU), monitor, mouse, keyboard, computer data storage, graphics card, sound card, speakers and motherboard.",
+        "img":  "https://cdn.pixabay.com/photo/2011/12/14/12/17/galaxy-11098_960_720.jpg"
+    }
+]

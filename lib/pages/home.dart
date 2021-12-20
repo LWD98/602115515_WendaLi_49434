@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -23,35 +24,31 @@ class _HomepageState extends State<Homepage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(11.0),
-        child: ListView(
-          children: [
-            MyBox(
-              "What is computer?",
-              "A computer is a machine that can be programmed to carry out sequences of arithmetic or logical operations automatically. Modern computers can perform generic sets of operations known as programs.",
-              "https://cdn.pixabay.com/photo/2017/04/25/22/28/despaired-2261021_960_720.jpg"
-            ),
-            SizedBox(height: 20),
-            MyBox(
-              "what is software",
-              "Software is a collection of instructions that tell a computer how to work.",
-              "https://cdn.pixabay.com/photo/2016/11/21/17/59/blackboard-1846865_960_720.jpg"
-            ),
-            SizedBox(height: 20),
-            MyBox(
-              "what is hardware",
-              "Computer hardware includes the physical parts of a computer, such as the case, central processing unit (CPU), monitor, mouse, keyboard, computer data storage, graphics card, sound card, speakers and motherboard.",
-              "https://cdn.pixabay.com/photo/2011/12/14/12/17/galaxy-11098_960_720.jpg"
-            ),
-          ],
+        child: FutureBuilder(
+          builder: (context, snapshot) {
+            var data = json.decode(snapshot.data.toString());
+            return ListView.builder(itemBuilder: (BuildContext context, int index){
+              return MyBox(data[index]["title"],data[index]["subtitle"],data[index]["img"]);
+            },
+            itemCount: data.length,
+            );
+          },
+          future: DefaultAssetBundle.of(context).loadString('assets/data.json'),
         ),
       ),
     );
   }
 }
 
-Widget MyBox(String title, String subtitle, String img,) {
+
+Widget MyBox(
+  String title,
+  String subtitle,
+  String img,
+) {
   return Container(
-    padding: EdgeInsets.all(17),
+    margin: EdgeInsets.only(top: 20),
+    padding: EdgeInsets.all(19),
     height: 150,
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
